@@ -4,13 +4,11 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/preset-create-react-app",
     "@storybook/addon-actions",
-    "@storybook/addon-contexts/regiser",
-    "@storybook/addon-backgrounds/regiser",
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true
-      }
-    }
-  ]
+    "@storybook/addon-contexts/register",
+    "@storybook/addon-backgrounds/register",
+    "@storybook/addon-docs"
+  ],
+  core: {
+    builder: "webpack5"
+  },
 }
