@@ -5,11 +5,10 @@ import { contexts } from "./contexts";
 addParameters({
   backgrounds: {
     default: "Default Theme",
-    value:[
+    values: [
       {
         name: "Default Theme", 
-        value: "#ffffff", 
-        default: true
+        value: "#ffffff"
       },
       {
         name: "Dark Theme", 
