@@ -1,0 +1,24 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
+import { SignUpModal } from "./Modal";
+
+<Meta title="Design System|Modal" component={SignUpModal} />
+
+# Modals
+
+A modal is a user experience element that comes in front of a larger parent window as a child window.
+
+## Usage
+
+Modals are used for specific workflows such as adding users, deleting content, sharing content, adding content, and more.
+
+## Sign Up Modal
+
+The Sign Up Modal is used get the user to Sign Up by clicking in a button.
+
+<Preview withToolbar>
+  <Story name="signUp">
+    <SignUpModal showModal={boolean("Show Modal", true)} />
+  </Story>
+</Preview>
