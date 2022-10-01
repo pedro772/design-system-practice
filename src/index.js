@@ -1,17 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { useState } from "react";
+import reactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import { SignUpModal } from "./components";
+import { GlobalStyle, darkTheme, defaultTheme } from "./utils";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  const [useDarkTheme, setUseDarkTheme] = useState(false);
+  
+  return (
+    <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
+      <button 
+        style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
+        onClick={() => setUseDarkTheme(true)}
+      >
+        Dark Theme
+      </button>
+      <button 
+        style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
+        onClick={() => setUseDarkTheme(false)}
+      >
+        Default Theme
+      </button>
+      
+      <div style={{
+        background: useDarkTheme ? defaultTheme.primaryColor : darkTheme.primaryColor,
+        width: "100vw",
+        height: "100vh",
+        maxWidth: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-around"
+      }}>
+        <SignUpModal />
+      </div>
+      
+      <GlobalStyle />
+    </ThemeProvider>
+  )
+}
+
+reactDOM.render(<App />, document.querySelector("#root"));
